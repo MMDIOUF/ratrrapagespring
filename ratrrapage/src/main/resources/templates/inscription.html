@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="template">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container " layout:fragment="contentForView">
+
+    <div class="card mt-2">
+        <div class="card-header">
+            <h5>Liste des inscrits</h5>
+            <div class="container">
+                <div class="float-end offset-2" >
+                    <a  class="btn btn-outline-secondary">Nouvelle inscription</a>
+                </div>
+            </div>
+
+        </div>
+
+        <form class="d-flex my-2 w-50" method="get" >
+            <label  class="form-label">Classe</label>
+            <input class="form-control me-1" name="" type="search" placeholder="" aria-label="Search">
+            <label  class="form-label">Date</label>
+            <input class="form-control me-1" name="" type="date" placeholder="" aria-label="Date">
+            <button class="btn btn-outline-success" type="submit">Rechercher</button>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Matricule</th>
+                <th>Nom & Prenom</th>
+                <th>Classe</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ins:${listeInscriptions}">
+                <td th:text="${ins.date}" ></td>
+                <td th:text="${ins.etudiant.matricule}"></td>
+                <td th:text="${ins.etudiant.nomComplet}"></td>
+                <td th:text="${ins.classe.libelle}">
+                    <button type="button" class="btn btn-outline-success">XXXX</button>
+                    <button type="button" class="btn btn-outline-danger">XXXX</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

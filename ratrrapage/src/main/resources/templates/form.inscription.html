@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template"
+      >
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle inscription</title>
+</head>
+<body>
+<div class="container " layout:fragment="contentForView">
+    <div class="card mt-2">
+        <div class="card-header" >
+            <h3>Inscrire un étudiant </h3>
+            <a  class="btn btn-outline-primary float-end offset-2">Retour</a>
+        </div>
+        <div class="card-body">
+            <form class="row g-3 col-md-8 offset-2" method="post" >
+                <div class="col-md-6">
+                    <label for="nomComplet" class="form-label">Nom et Prénom</label>
+                    <input type="text" name="nomComplet" th:value="${inscription.nomComplet}" class="form-control" id="nomComplet" aria-describedby="emailHelp">
+                </div>
+                <div class="col-md-6">
+                    <label for="tuteur" class="form-label">Tuteur</label>
+                    <input type="text" name="telephone" th:value="${inscription.etudiant.tuteur}" class="form-control" id="tuteur" aria-describedby="emailHelp">
+                </div>
+                <div class="col-md-6">
+                    <label for="matricule" class="form-label">Matricule</label>
+                    <input type="text" name="matricule" th:value="${inscription.matricule}" class="form-control" id="matricule" aria-describedby="emailHelp">
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" name="email" th:value="${inscription.email}" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" th:value="${inscription.password}" class="form-control" id="password" aria-describedby="emailHelp">
+                </div>
+                <div class="col">
+                    <select
+                            name="classe"
+                            class="form-select" aria-label="Default select example">
+                        <option th:each="classe:${classes}"
+                                th:value="${classe.id}"
+                                th:text="${classe.libelle}"
+                        ></option>
+
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" class="float-end btn btn-primary">Enregister</button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
